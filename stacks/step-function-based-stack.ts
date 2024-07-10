@@ -39,7 +39,7 @@ export class StepFunctionBasedStack extends cdk.Stack {
           "london_datetime.$" : "$.dateTime"
         },
         "Bucket": timeBucket.bucketName,
-        "Key.$": "$$.State.EnteredTime"
+        "Key.$": "States.Format('{}.json', $$.State.EnteredTime)"
       },
       iamResources : [timeBucket.arnForObjects("*")]
     });
