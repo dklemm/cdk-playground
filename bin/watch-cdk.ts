@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { WatchCdkStack } from '../lib/watch-cdk-stack';
-import { WatchStepCdkStack } from '../lib/watch-cdk-step-stack';
+import { LambdaBasedStack } from '../stacks/lambda-based-stack';
+import { StepFunctionBasedStack } from '../stacks/step-function-based-stack';
 
 const app = new cdk.App();
-new WatchCdkStack(app, 'WatchCdkStack', {});
-new WatchStepCdkStack(app, 'WatchStepCdkStack', {});
+new LambdaBasedStack(app, 'WatchCdkStack', {});
+new StepFunctionBasedStack(app, 'WatchStepCdkStack', {});
